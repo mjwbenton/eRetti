@@ -15,26 +15,27 @@ const app = new Koa();
 const httpRouter = new Router();
 
 httpRouter.get("/reader", async (context: any) => {
-  const content = await readFile(STORAGE_FILE);
   context.set("Content-Type", "text/html");
-  await context.render("read.html", { content });
+  await context.render("read.html");
 });
 httpRouter.get("/read", async (context: any) => {
-  context.set("Content-Type", "text/plain");
-  context.body = await readFile(STORAGE_FILE);
+  const data = JSON.parse((await readFile(STORAGE_FILE)).toString());
+  context.set("Content-Type", "application/json");
+  context.body = data;
 });
 httpRouter.get("/writer", async (context: any) => {
-  const content = await readFile(STORAGE_FILE);
+  const data = JSON.parse((await readFile(STORAGE_FILE)).toString());
+  console.log(data);
   context.set("Content-Type", "text/html");
-  await context.render("write.html", { content });
+  await context.render("write.html", data);
 });
 httpRouter.post("/write", async context => {
-  await writeFile(STORAGE_FILE, context.request.rawBody || "");
+  await writeFile(STORAGE_FILE, context.request.rawBody);
   context.body = "";
 });
 
 app
-  .use(bodyParser({ enableTypes: ["text"] }))
+  .use(bodyParser({ enableTypes: ["json", "text"] }))
   .use(
     views(__dirname + "/views", {
       map: {

@@ -10,10 +10,16 @@
 </body>
 <script>
     var textareaEl = document.getElementById("content");
-    textareaEl.oninput = function (event) {
+    textareaEl.onkeyup = function (event) {
         fetch("/write", {
             method: "POST",
-            body: textareaEl.value
+            body: JSON.stringify({
+                content: textareaEl.value,
+                selection: {
+                    start: textareaEl.selectionStart,
+                    end: textareaEl.selectionEnd
+                }
+            })
         });
     }
 </script>

@@ -6,8 +6,8 @@
   <title>Kindle Writer</title>
 </head>
 <body>
-    <pre style="white-space: pre-wrap; font-size: 32px; width: 30em; margin: auto;" id="content">{{content}}</pre>
-    <pre id="errors"></pre>
+    <!-- Styling below makes screen exactly 50 characters wide on my Kindle -->
+    <div style="font-family: monospace; white-space: pre-wrap; font-size: 32px;" id="content"></div>
 </body>
 <script>
     var contentEl = document.getElementById("content");
@@ -16,7 +16,10 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    contentEl.innerHTML = xhttp.responseText;
+                    var data = JSON.parse(xhttp.responseText);
+                    var atPosition = "<span style=\"background-color: lightgrey;\">" + data.content.substr(data.selection.start, 1) + "</span>";
+                    var content = data.content.substr(0, data.selection.start) + atPosition + data.content.substr(data.selection.start + 1);
+                    contentEl.innerHTML = content;
                     go();
                 }
             };
