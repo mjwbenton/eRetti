@@ -1,0 +1,20 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kindle Writer</title>
+</head>
+<body>
+    <textarea id="content">{{content}}</textarea>
+</body>
+<script>
+    var textareaEl = document.getElementById("content");
+    textareaEl.oninput = function (event) {
+        fetch("/write", {
+            method: "POST",
+            body: textareaEl.value
+        });
+    }
+</script>
+</html>

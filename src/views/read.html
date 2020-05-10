@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kindle Writer</title>
+</head>
+<body>
+    <pre style="white-space: pre-wrap; font-size: 32px; width: 30em; margin: auto;" id="content">{{content}}</pre>
+    <pre id="errors"></pre>
+</body>
+<script>
+    var contentEl = document.getElementById("content");
+    function go() {
+        setTimeout(function () {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    contentEl.innerHTML = xhttp.responseText;
+                    go();
+                }
+            };
+            xhttp.open("GET", "/read", true);
+            xhttp.send();
+        }, 300);
+    }
+    go();
+</script>
+</html>
