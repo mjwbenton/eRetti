@@ -5,11 +5,12 @@ import views from "koa-views";
 import fs from "fs";
 import { promisify } from "util";
 import path from "path";
+import readline from "readline";
 
 const STORAGE_FILE = path.normalize(path.join(__dirname, "..", "data"));
 
-const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
+const appendFile = promisify(fs.appendFile);
 
 const app = new Koa();
 const httpRouter = new Router();
@@ -22,16 +23,6 @@ httpRouter.get("/read", async (context: any) => {
   const data = JSON.parse((await readFile(STORAGE_FILE)).toString());
   context.set("Content-Type", "application/json");
   context.body = data;
-});
-httpRouter.get("/writer", async (context: any) => {
-  const data = JSON.parse((await readFile(STORAGE_FILE)).toString());
-  console.log(data);
-  context.set("Content-Type", "text/html");
-  await context.render("write.html", data);
-});
-httpRouter.post("/write", async context => {
-  await writeFile(STORAGE_FILE, context.request.rawBody);
-  context.body = "";
 });
 
 app
@@ -48,3 +39,17 @@ app
 app.listen(8000);
 
 console.log("Listening on 8000");
+
+readline.emitKeypressEvents(process.stdin);
+process.stdin.setRawMode(true);
+
+process.stdin.on("keypress", (str, key) => {
+  if (key.ctrl && key.name === "c") {
+    process.exit();
+  }
+  if (str) {
+    appendFile(STORAGE_FILE, str);
+  }
+});
+
+console.log("Awaiting key presses");
