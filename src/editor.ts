@@ -8,7 +8,11 @@ export default class Editor {
   private selection: { start: number; end: number };
 
   public static async createForPath(storagePath: string) {
-    const content = (await readFile(storagePath)).toString();
+    let content = "";
+    try {
+      const buffer = await readFile(storagePath);
+      content = buffer.toString();
+    } catch {}
     return new Editor(storagePath, content);
   }
 

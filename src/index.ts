@@ -1,8 +1,9 @@
 import path from "path";
 import Server from "./server";
 import Editor from "./editor";
+import os from "os";
 
-const STORAGE_FILE = path.normalize(path.join(__dirname, "..", "data"));
+const STORAGE_FILE = path.join(os.homedir(), "data");
 
 async function main() {
   const editor = await Editor.createForPath(STORAGE_FILE);

@@ -3,8 +3,13 @@
   "version": "0.0.1",
   "description": "A tool for using a Kindle as a typewriter",
   "main": "index.js",
+  "files": [
+    "src/*.js",
+    "src/views/*.html"
+  ],
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run build",
     "start": "npm run build && node src/index.js"
   },
   "author": "Matt Benton <m@mattb.tech>",
