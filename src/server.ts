@@ -10,7 +10,7 @@ export default class Server {
     this.app = new Koa();
     const httpRouter = new Router();
 
-    httpRouter.get("/reader", async (context: any) => {
+    httpRouter.get("/", async (context: any) => {
       context.set("Content-Type", "text/html");
       await context.render("read.html");
     });
