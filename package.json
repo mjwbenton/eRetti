@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "start": "npm run build && node src/index.js"
+    "start": "npm run build && OVERRIDE_FILE=data node src/index.js"
   },
   "author": "Matt Benton <m@mattb.tech>",
   "license": "MIT",
