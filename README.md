@@ -6,6 +6,7 @@
 - Basic editor features (move cursor, delete characters, selections)
 - Support for cursor at the end of lines
 - Save the file in an easy place to get off
+- Easier setup
 
 ## Setup Notes
 
@@ -67,10 +68,6 @@ npm install @mattb.tech/kindle-writer
 
 ## Setup to run on startup in screen
 
-Edit profile
-
 ```
-TERM=linux
-if [ -z "$STY" ]; then screen -xR; fi
+$ node_modules/.bin/kindle-writer-install-profile
 ```
-
