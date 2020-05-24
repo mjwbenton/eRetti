@@ -1,4 +1,4 @@
-#!node
+#!/usr/bin/env node
 
 import path from "path";
 import Server from "./server";
