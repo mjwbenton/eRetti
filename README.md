@@ -1,5 +1,12 @@
 # Kindle-Writer
 
+## TODO
+
+- Start its own wifi for the kindle to connect to
+- Basic editor features (move cursor, delete characters, selections)
+- Support for cursor at the end of lines
+- Save the file in an easy place to get off
+
 ## Setup Notes
 
 ### Tiny Core Install
@@ -56,9 +63,7 @@ add screen to onboot
 
 ## Install KindleWriter
 
-git whatever
-npm install
-npm run start
+npm install @mattb.tech/kindle-writer
 
 ## Setup to run on startup in screen
 
@@ -68,3 +73,4 @@ Edit profile
 TERM=linux
 if [ -z "$STY" ]; then screen -xR; fi
 ```
+

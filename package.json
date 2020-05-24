@@ -3,9 +3,14 @@
   "version": "0.0.2",
   "description": "A tool for using a Kindle as a typewriter",
   "main": "index.js",
+  "bin": {
+    "kindle-writer-start": "./src/index.js",
+    "kindle-writer-install-profile": "./src/installProfile.js"
+  },
   "files": [
     "src/*.js",
-    "src/views/*.html"
+    "src/views/*.html",
+    "profile"
   ],
   "scripts": {
     "build": "tsc",

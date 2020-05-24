@@ -1,3 +1,5 @@
+#!node
+
 import path from "path";
 import Server from "./server";
 import Editor from "./editor";
