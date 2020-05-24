@@ -16,11 +16,11 @@ export default class Server {
     });
     httpRouter.get("/read", async (context: any) => {
       const content = this.editor.getContent();
-      const selection = this.editor.getSelection();
+      const cursor = this.editor.getCursor();
       context.set("Content-Type", "application/json");
       context.body = {
         content,
-        selection
+        cursor
       };
     });
 

@@ -5,7 +5,7 @@ import readline from "readline";
 const readFile = promisify(fs.readFile);
 
 export default class Editor {
-  private selection: { start: number; end: number };
+  private cursor: number;
 
   public static async createForPath(storagePath: string) {
     let content = "";
@@ -17,7 +17,7 @@ export default class Editor {
   }
 
   constructor(private readonly storagePath: string, private content: string) {
-    this.selection = { start: this.content.length, end: this.content.length };
+    this.cursor = this.content.length;
   }
 
   public connect() {
@@ -39,7 +39,7 @@ export default class Editor {
     return this.content;
   }
 
-  public getSelection() {
-    return this.selection;
+  public getCursor() {
+    return this.cursor;
   }
 }
