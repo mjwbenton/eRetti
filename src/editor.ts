@@ -27,8 +27,9 @@ export default class Editor {
     process.stdin.on("keypress", (str, key) => {
       if (key.ctrl && key.name === "c") {
         process.exit(0);
-      }
-      if (str) {
+      } else if (key.name === "backspace") {
+        this.content = this.content.substring(0, this.content.length - 1);
+      } else if (str) {
         this.content = this.content + str;
       }
     });
