@@ -18,7 +18,7 @@
 
 TODO: Include photo here
 
-## Setup Notes
+## Setup
 
 ### Tiny Core Install
 
@@ -140,3 +140,14 @@ tc@box:~$ filetool.sh -b
 ```
 
 After running the second command, the system will always start directly into a screen session running the Kindle-Writer server.
+
+## Upgrading
+
+You can grab the latest version just by reinstalling `@mattb.tech/kindle-writer`. SSH in, start a new window in screen with `Ctrl+a Ctrl+c` and then run
+
+```
+tc@box:~$ npm install @mattb.tech/kindle-writer
+tc@box:~$ node_modules/.bin/kindle-writer-install-profile
+tc@box:~$ filetool.sh -b
+```
+
