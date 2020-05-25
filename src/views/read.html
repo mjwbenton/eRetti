@@ -17,7 +17,7 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     var data = JSON.parse(xhttp.responseText);
-                    var atPosition = "<span style=\"background-color: lightgrey;\">" + data.content.substr(data.cursor, 1) + "</span>";
+                    var atPosition = "<span style=\"background-color: lightgrey;\">" + (data.content.substr(data.cursor, 1) || "&nbsp;") + "</span>";
                     var content = data.content.substr(0, data.cursor) + atPosition + data.content.substr(data.cursor + 1);
                     contentEl.innerHTML = content;
                     go();
