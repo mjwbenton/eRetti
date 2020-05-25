@@ -41,7 +41,6 @@ export default class Editor {
     process.stdin.setRawMode(true);
 
     process.stdin.on("keypress", (_, key) => {
-      console.dir(key);
       for (const processor of this.keyProcessors) {
         const result = processor.handle(key, this.content, this.cursor);
         if (result.handled) {
