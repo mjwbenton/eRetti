@@ -20,8 +20,8 @@
                     var cursorCharacter = data.content.substr(data.cursor, 1);
                     var beforeCursor = data.content.substr(0, data.cursor);
                     var afterCursor = data.content.substr(data.cursor + 1);
-                    if (cursorCharacter === "\r") {
-                        cursorCharacter = "&nbsp;\r";
+                    if (cursorCharacter === "\n") {
+                        cursorCharacter = "&nbsp;\n";
                     }
                     if (!cursorCharacter) {
                         cursorCharacter = "&nbsp;";

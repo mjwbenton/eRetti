@@ -6,6 +6,7 @@ import QuitProcessor from "./keys/QuitProcessor";
 import BackspaceProcessor from "./keys/BackspaceProcessor";
 import CharacterProcessor from "./keys/CharacterProcessor";
 import MoveProcessor from "./keys/MoveProcessor";
+import ReturnProcessor from "./keys/ReturnProcessor";
 
 const readFile = promisify(fs.readFile);
 
@@ -22,6 +23,7 @@ export default class Editor {
       QuitProcessor,
       BackspaceProcessor,
       MoveProcessor,
+      ReturnProcessor,
       CharacterProcessor
     ]);
   }
