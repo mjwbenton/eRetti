@@ -36,7 +36,7 @@ export default class Editor {
     this.cursor = this.content.length;
   }
 
-  public connect() {
+  public start() {
     readline.emitKeypressEvents(process.stdin);
     process.stdin.setRawMode(true);
 

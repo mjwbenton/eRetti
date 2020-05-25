@@ -36,7 +36,7 @@ export default class Server {
       .use(httpRouter.allowedMethods());
   }
 
-  public connect() {
+  public start() {
     this.app.listen(8000);
     console.log("Listening on 8000");
   }
