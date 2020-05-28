@@ -1,5 +1,12 @@
 # Kindle-Writer
 
+## TODO
+
+- Photo of setup
+- Make video of usage
+- Usage guide
+- Setup script that installs software etc.
+
 ## Items Required
 
 - Raspberry Pi 3 B+
@@ -7,8 +14,6 @@
 - MicroSD card and adapter to plug into laptop
 - Ethernet cable (to get started only)
 - Laptop (all instructions here for Mac OS X laptop)
-
-TODO: Include photo here
 
 ## Setup
 
