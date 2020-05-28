@@ -9,6 +9,7 @@
   },
   "files": [
     "src/*.js",
+    "src/keys/*.js",
     "src/views/*.html",
     "config"
   ],
