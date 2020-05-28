@@ -123,7 +123,6 @@ Now that we've got those prerequisites sorted, we can install the Kindle-Writer 
 ```
 tc@box:~$ npm install @mattb.tech/kindle-writer
 tc@box:~$ node_modules/.bin/kindle-writer-install-home
-tc@box:~$ filetool.sh -b
 ```
 
 After running the second command, the system will always start directly into a screen session running the Kindle-Writer server.
@@ -131,7 +130,13 @@ After running the second command, the system will always start directly into a s
 To configure the device as a Wifi Access Point...
 
 ```
-tc@box:~$ echo "/home/tc/start_wifi.sh" >> /opt/bootlocal.sh
+tc@box:~$ echo "/home/tc/start_wifi.sh &" >> /opt/bootlocal.sh
+```
+
+Save all your changes
+
+```
+tc@box:~$ filetool.sh -b
 ```
 
 ## Upgrading
