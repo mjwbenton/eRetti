@@ -5,12 +5,12 @@
   "main": "index.js",
   "bin": {
     "kindle-writer-start": "./src/index.js",
-    "kindle-writer-install-profile": "./src/installProfile.js"
+    "kindle-writer-install-home": "./src/installHome.js"
   },
   "files": [
     "src/*.js",
     "src/views/*.html",
-    "profile"
+    "config"
   ],
   "scripts": {
     "build": "tsc",

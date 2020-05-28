@@ -1,13 +1,5 @@
 # Kindle-Writer
 
-## TODO
-
-- Start its own wifi for the kindle to connect to
-- Basic editor features (move cursor, delete characters, selections)
-- Support for cursor at the end of lines
-- Save the file in an easy place to get off
-- Easier setup
-
 ## Items Required
 
 - Raspberry Pi 3 B+
@@ -101,45 +93,46 @@ tc@box:~$ echo "mkdir /mnt/kindlewriter && mount -t vfat /dev/mmcblk0p3 /mnt/kin
 tc@box:~$ filetool.sh -b
 ```
 
-### Wifi setup
+### Install Prerequisites
 
-If you want, you can get setup on your wifi at this point so that you don't need to leave your Raspberry Pi by your router. Run the following and configure your wifi when requested.
-
-```
-tc@box:~$ tce-load -wi firmware-rpi-wifi
-tc@box:~$ tce-load -wi wifi
-tc@box:~$ sudo reboot
-tc@box:~$ sudo wifi.sh
-tc@box:~$ echo "wifi.sh -a" >> /opt/bootlocal.sh
-tc@box:~$ filetool.sh -b
-```
-
-You can now poweroff your Pi, disconnect it from the ethernet and boot it back up again.
+Install tcz using tce-load
 
 ```
-tc@box:~$ sudo poweroff
+tc@box:~$ tce-load -wi screen firmware-rpi-wifi wifi wireless_tools libnl
 ```
 
-## Install software
-
-Next we need screen and node to be able to run our application. Screen is available from `tce-load`, but at this time node is not.
+Install node
 
 ```
-tc@box:~$ tce-load -wi screen
 tc@box:~$ wget https://nodejs.org/dist/v14.3.0/node-v14.3.0-linux-armv7l.tar.xz
 tc@box:~$ tar xf node-v14.3.0-linux-armv7l.tar.xz
 tc@box:~$ PATH=$PATH:~/node-v14.3.0-linux-armv7l/bin
 ```
 
+Hostapd hasn't been built for TinyCoreLinux 11.x, but we can use the build for TinyCoreLinux 10.x.
+
+```
+tc@box:~$ wget http://www.tinycorelinux.net/10.x/armv7/tcz/hostapd.tcz http://www.tinycorelinux.net/10.x/armv7/tcz/hostapd.tcz.dep http://www.tinycorelinux.net/10.x/armv7/tcz/hostapd.tcz.md5.txt -P /mnt/mmcblk0p2/tce/optional/
+tc@box:~$ echo "hostapd.tcz" >> /mnt/mmcblk0p2/tce/onboot.lst
+```
+
+### Install Software
+
 Now that we've got those prerequisites sorted, we can install the Kindle-Writer software
 
 ```
 tc@box:~$ npm install @mattb.tech/kindle-writer
-tc@box:~$ node_modules/.bin/kindle-writer-install-profile
+tc@box:~$ node_modules/.bin/kindle-writer-install-home
 tc@box:~$ filetool.sh -b
 ```
 
 After running the second command, the system will always start directly into a screen session running the Kindle-Writer server.
+
+To configure the device as a Wifi Access Point...
+
+```
+tc@box:~$ sudo echo "/home/tc/start_wifi.sh" >> /opt/bootlocal.sh
+```
 
 ## Upgrading
 
@@ -150,4 +143,3 @@ tc@box:~$ npm install @mattb.tech/kindle-writer
 tc@box:~$ node_modules/.bin/kindle-writer-install-profile
 tc@box:~$ filetool.sh -b
 ```
-
