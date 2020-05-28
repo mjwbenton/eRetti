@@ -1,6 +1,6 @@
 {
   "name": "@mattb.tech/kindle-writer",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A tool for using a Kindle as a typewriter",
   "main": "index.js",
   "bin": {
