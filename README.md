@@ -61,7 +61,7 @@ Device       Boot StartCHS    EndCHS        StartLBA     EndLBA    Sectors  Size
 
 Note down the `StartLBA` of `/dev/mmcblk0p2` as we're going to need it later.
 
-Next we want to delete the second partition. Enter `d` and then `2`. Then we want to create a new primary partition in its place. Enter `n`, `p` and then `2`. Then for the "First sector" enter the `StartLBA` number we noted down earlier. Enter `1024M` giving us a generous 1Gb of storage space for our application.
+Next we want to delete the second partition. Enter `d` and then `2`. Then we want to create a new primary partition in its place. Enter `n`, `p` and then `2`. Then for the "First sector" enter the `StartLBA` number we noted down earlier. Enter `+1024M` giving us a generous 1Gb of storage space for our application.
 
 We use a "linux" format for this second partition by entering `t` then `2` then `83`.
 
@@ -131,7 +131,7 @@ After running the second command, the system will always start directly into a s
 To configure the device as a Wifi Access Point...
 
 ```
-tc@box:~$ sudo echo "/home/tc/start_wifi.sh" >> /opt/bootlocal.sh
+tc@box:~$ echo "/home/tc/start_wifi.sh" >> /opt/bootlocal.sh
 ```
 
 ## Upgrading
