@@ -1,11 +1,11 @@
 {
-  "name": "@mattb.tech/kindle-writer",
+  "name": "@mattb.tech/eretti",
   "version": "0.5.0",
-  "description": "A tool for using a Kindle as a typewriter",
+  "description": "A tool for using any device as a distraction free e-typewriter.",
   "main": "index.js",
   "bin": {
-    "kindle-writer-start": "./src/index.js",
-    "kindle-writer-install-home": "./src/installHome.js"
+    "eretti-start": "./src/index.js",
+    "eretti-install-home": "./src/installHome.js"
   },
   "files": [
     "src/*.js",

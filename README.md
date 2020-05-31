@@ -1,7 +1,8 @@
-# Kindle-Writer
+# eRetti
 
 ## TODO
 
+- Try setting up nodogsplash
 - Photo of setup
 - Make video of usage
 - Usage guide
@@ -88,7 +89,7 @@ Once you've SSH'd back in.
 
 ```
 tc@box:~$ sudo resize2fs /dev/mmcblk0p2
-tc@box:~$ sudo mkfs.vfat -F 32 -n KindleWriter /dev/mmcblk0p3
+tc@box:~$ sudo mkfs.vfat -F 32 -n eRetti /dev/mmcblk0p3
 ```
 
 Setup our output filesystem to mount on boot
@@ -123,14 +124,14 @@ tc@box:~$ echo "hostapd.tcz" >> /mnt/mmcblk0p2/tce/onboot.lst
 
 ### Install Software
 
-Now that we've got those prerequisites sorted, we can install the Kindle-Writer software
+Now that we've got those prerequisites sorted, we can install the eRetti software
 
 ```
 tc@box:~$ npm install @mattb.tech/kindle-writer
 tc@box:~$ node_modules/.bin/kindle-writer-install-home
 ```
 
-After running the second command, the system will always start directly into a screen session running the Kindle-Writer server.
+After running the second command, the system will always start directly into a screen session running the eRetti server.
 
 To configure the device as a Wifi Access Point...
 
