@@ -154,3 +154,7 @@ tc@box:~$ npm install @mattb.tech/kindle-writer
 tc@box:~$ node_modules/.bin/kindle-writer-install-profile
 tc@box:~$ filetool.sh -b
 ```
+
+## Name
+
+"eRetti" is a terrible portmanteau of eReader and Olivetti (a brand of typewriter).
