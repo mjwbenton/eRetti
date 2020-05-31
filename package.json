@@ -1,6 +1,6 @@
 {
   "name": "@mattb.tech/eretti",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A tool for using any device as a distraction free e-typewriter.",
   "main": "index.js",
   "bin": {
